@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: player_spriteatlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: a13fc3796e27b4b4ca4613ae69a52170, type: 3}
+    - {fileID: 2800000, guid: 75d6aba9cacb1244dbcdeac288f58c30, type: 3}
+    - {fileID: 2800000, guid: e54c149a1311b584cbed7a7d813b7885, type: 3}
+    - {fileID: 2800000, guid: 76dfa7b8922d93f4b9ffed409e992fd0, type: 3}
+    - {fileID: 2800000, guid: a6731dc85db874848affe8fbbc31faba, type: 3}
+    - {fileID: 2800000, guid: 7ae5eb20127b1ff41951eb48ede4db80, type: 3}
+    totalSpriteSurfaceArea: 262080
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7ae5eb20127b1ff41951eb48ede4db80, type: 3}
+  - {fileID: 21300000, guid: 76dfa7b8922d93f4b9ffed409e992fd0, type: 3}
+  - {fileID: 21300000, guid: a6731dc85db874848affe8fbbc31faba, type: 3}
+  - {fileID: 21300000, guid: a13fc3796e27b4b4ca4613ae69a52170, type: 3}
+  - {fileID: 21300000, guid: 75d6aba9cacb1244dbcdeac288f58c30, type: 3}
+  - {fileID: 21300000, guid: e54c149a1311b584cbed7a7d813b7885, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - "\uC8FC\uC778\uACF56"
+  - "\uC8FC\uC778\uACF54"
+  - "\uC8FC\uC778\uACF55"
+  - "\uC8FC\uC778\uACF51"
+  - "\uC8FC\uC778\uACF52"
+  - "\uC8FC\uC778\uACF53"
+  m_RenderDataMap: {}
+  m_Tag: player_spriteatlas
+  m_IsVariant: 0
