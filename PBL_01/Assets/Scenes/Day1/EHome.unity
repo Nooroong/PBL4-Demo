@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btn: {fileID: 276386236}
   Panel: {fileID: 1967268092}
-  nextScene: House
+  nextScene: Demo_Ending
 --- !u!82 &276386240
 AudioSource:
   m_ObjectHideFlags: 0

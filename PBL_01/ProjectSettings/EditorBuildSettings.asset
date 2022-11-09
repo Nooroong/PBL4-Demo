@@ -272,4 +272,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day1/Treatment.unity
     guid: 8d602f0413335bc4e92ea3379e71c175
+  - enabled: 1
+    path: Assets/Scenes/Demo_Ending.unity
+    guid: 5c81300963bded740906b96cef09c858
   m_configObjects: {}

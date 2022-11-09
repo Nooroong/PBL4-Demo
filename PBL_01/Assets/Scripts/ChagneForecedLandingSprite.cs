@@ -8,6 +8,7 @@ public class ChagneForecedLandingSprite : MonoBehaviour
     Animator m_Animator;
     public GameObject image;
     public Text dialogText;
+    public Image spaceship;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class ChagneForecedLandingSprite : MonoBehaviour
         if (dialogText.text == "주인공은 기절을")
         {
             m_Animator.GetComponent<Animator>().enabled = true;
+            spaceship.gameObject.SetActive(false);
         }
 
         if (dialogText.text == "정신을")

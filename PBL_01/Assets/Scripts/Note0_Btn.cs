@@ -43,6 +43,7 @@ public class Note0_Btn : MonoBehaviour
                             "ø¿¥√µµ π‰ ∏‘∞Ì æ‡ ¿ÿ¡ˆ∏∂. ø¿¥√ ∏∂¿ªø° √‡¡¶ ø≠∏Æ¥œ±Ó ±∏∞Ê«ÿ∫¡." + "\n" +
                             ps.text;
                 break;
+            
         }
     }
 

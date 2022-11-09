@@ -36,6 +36,7 @@ public class Note1_Btn : MonoBehaviour
                 b2text.text = "오늘은 무슨 일이 일어날지 걱정돼요.";
                 b3text.text = "오늘은 꼭 볼 수 있었으면 좋겠어요.";
                 break;
+            
         }
 
 
