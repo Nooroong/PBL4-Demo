@@ -12,6 +12,6 @@ public class End_Credit : MonoBehaviour
 
     void Next()
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("LoadingScene"); 
     }
 }
