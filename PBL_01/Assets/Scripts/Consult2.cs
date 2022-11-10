@@ -38,10 +38,7 @@ public class Consult2 : MonoBehaviour
     
     public void NextScene()
     {
-        if (D_screenPos.x < 570.0f)
-        {
-            SceneManager.LoadScene("Consult3");
-        }
+        SceneManager.LoadScene("Consult3");
     }
 
   
@@ -50,6 +47,7 @@ public class Consult2 : MonoBehaviour
     void Update()
     {
         D_screenPos = m_cam.WorldToScreenPoint(door.gameObject.transform.position);
+        Debug.Log(D_screenPos.x);
         ShowDoor();
     }
 }

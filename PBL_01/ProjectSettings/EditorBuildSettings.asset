@@ -63,11 +63,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Day1/Consult3.unity
     guid: b163111027c3dd846a7d16e09b921aad
   - enabled: 1
-    path: Assets/Scenes/Day1/HospitalFlashback.unity
-    guid: b80987cb1011aec418506638477515f2
-  - enabled: 1
     path: Assets/Scenes/Day1/Consult4.unity
     guid: 8838bbe063622b54bb68998329647443
+  - enabled: 1
+    path: Assets/Scenes/Day1/HospitalFlashback.unity
+    guid: b80987cb1011aec418506638477515f2
   - enabled: 1
     path: Assets/Scenes/Day1/HospitalReception2.unity
     guid: 14913fee595aa3741b1ef21cba448bda
