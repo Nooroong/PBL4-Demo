@@ -217,6 +217,6 @@ public class LockPattern : MonoBehaviour {
     {
         circles[idf.id].GetComponent<AudioSource>().Play();
         yield return new WaitUntil(() => !circles[idf.id].GetComponent<AudioSource>().isPlaying);
-        circles[idf.id].GetComponent<AudioSource>().enabled = false;
+        circles[idf.id].GetComponent<AudioSource>().volume = 0f;
     }
 }

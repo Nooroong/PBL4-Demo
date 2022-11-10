@@ -47,7 +47,9 @@ public class Walkigstreet : MonoBehaviour
 
     IEnumerator WalkingFlow()
     {
-        while (F_screenPos.x - P_screenPos.x > 400)
+        // F_screenPos.x - P_screenPos.x > 400
+        while (this.gameObject.GetComponent<RectTransform>().anchoredPosition.x <
+                fly.gameObject.GetComponent<RectTransform>().anchoredPosition.x - 300f)
         {
             xMove = 0;
             xMove = 2/p_speed;

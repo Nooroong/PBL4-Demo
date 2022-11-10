@@ -20,6 +20,11 @@ public class FootPrint : MonoBehaviour
         player.gameObject.SetActive(true);
         m_Animator = GetComponent<Animator>();
         m_Animator.GetComponent<Animator>().enabled = false;
+
+        Foot2.GetComponent<Button>().enabled = false;
+        Foot3.GetComponent<Button>().enabled = false;
+        Foot4.GetComponent<Button>().enabled = false;
+        Foot5.GetComponent<Button>().enabled = false;
     }
 
     public void FadeFoot1()
@@ -42,6 +47,8 @@ public class FootPrint : MonoBehaviour
             player.transform.Translate(new Vector3(xMove, 0, 0));
             yield return null;
         }
+
+        Foot2.GetComponent<Button>().enabled = true;
         yield return null;
     }
 
@@ -65,6 +72,8 @@ public class FootPrint : MonoBehaviour
             player.transform.Translate(new Vector3(xMove, 0, 0));
             yield return null;
         }
+
+        Foot3.GetComponent<Button>().enabled = true;
         yield return null;
     }
     public void FadeFoot3()
@@ -87,6 +96,8 @@ public class FootPrint : MonoBehaviour
             player.transform.Translate(new Vector3(xMove, 0, 0));
             yield return null;
         }
+
+        Foot4.GetComponent<Button>().enabled = true;
         yield return null;
     }
     public void FadeFoot4()
@@ -109,6 +120,8 @@ public class FootPrint : MonoBehaviour
             player.transform.Translate(new Vector3(xMove, 0, 0));
             yield return null;
         }
+
+        Foot5.GetComponent<Button>().enabled = true;
         yield return null;
     }
 

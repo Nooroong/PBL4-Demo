@@ -25,7 +25,8 @@ public class Consult2 : MonoBehaviour
     {
         xMove = 0;
 
-        if (D_screenPos.x > 570.0f)
+        // D_screenPos.x > 570.0f
+        if (door.GetComponent<RectTransform>().anchoredPosition.x > -500f)
         {
             xMove = -speed * Time.deltaTime;
             door.transform.Translate(new Vector3(xMove, 0, 0));
