@@ -1,7 +1,7 @@
 /*
- Âü°í ¸µÅ©:
-https://www.youtube.com/watch?v=wkypEC294K8 (¿øº» °­ÀÇ ¿µ»ó)
-https://pastebin.com/xRdFU8Pm (¼Ò½ºÄÚµå)
+ ì°¸ê³  ë§í¬:
+https://www.youtube.com/watch?v=wkypEC294K8 (ì›ë³¸ ê°•ì˜ ì˜ìƒ)
+https://pastebin.com/xRdFU8Pm (ì†ŒìŠ¤ì½”ë“œ)
  */
 
 using System.Collections;
@@ -19,18 +19,18 @@ public class LockPattern : MonoBehaviour {
     float F_time = 1f;
 
     public GameObject linePrefab;
-    public GameObject lineParent; //¶óÀÎÀÌ Äµ¹ö½ºÀÇ ÀÚ½ÄÀ¸·Î »ı¼ºµÊ
-    public List<CircleIdentifier> lines = new List<CircleIdentifier>(); //CircleIdentifier: °¢ ¶óÀÎÀÌ ¾î´À circle·ÎºÎÅÍ »ı¼ºµÆ´ÂÁö ¾Ë ¼ö ÀÖÀ½.
+    public GameObject lineParent; //ë¼ì¸ì´ ìº”ë²„ìŠ¤ì˜ ìì‹ìœ¼ë¡œ ìƒì„±ë¨
+    public List<CircleIdentifier> lines = new List<CircleIdentifier>(); //CircleIdentifier: ê° ë¼ì¸ì´ ì–´ëŠ circleë¡œë¶€í„° ìƒì„±ëëŠ”ì§€ ì•Œ ìˆ˜ ìˆìŒ.
 
-    bool isAsc = true; //ÁÂ->¿ì ÆĞÅÏ
-    bool isDes = true; //¿ì->ÁÂ ÆĞÅÏ
+    bool isAsc = true; //ì¢Œ->ìš° íŒ¨í„´
+    bool isDes = true; //ìš°->ì¢Œ íŒ¨í„´
 
-    GameObject lineOnEdit; //°¡Àå ¸¶Áö¸·¿¡ »ı¼ºµÈ ¶óÀÎÀ» ´ã´Â º¯¼ö
+    GameObject lineOnEdit; //ê°€ì¥ ë§ˆì§€ë§‰ì— ìƒì„±ëœ ë¼ì¸ì„ ë‹´ëŠ” ë³€ìˆ˜
     RectTransform lineOnEditRcTs;
-    CircleIdentifier circleOnEdit; //¸¶Áö¸· ¶óÀÎÀÌ »ı¼ºµÈ ¿øÀÇ Á¤º¸
+    CircleIdentifier circleOnEdit; //ë§ˆì§€ë§‰ ë¼ì¸ì´ ìƒì„±ëœ ì›ì˜ ì •ë³´
     Dictionary<int, CircleIdentifier> circles = new Dictionary<int, CircleIdentifier>();
 
-    bool unLocking; //Àá±İÇØÁ¦ »óÅÂ¸¦ ÀúÀåÇÏ´Â º¯¼ö
+    bool unLocking; //ì ê¸ˆí•´ì œ ìƒíƒœë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
     bool enable = true;
     // Start is called before the first frame update
     void Start() {
@@ -48,7 +48,7 @@ public class LockPattern : MonoBehaviour {
             return;
         }
 
-        //Ç×»ó °¡Àå ¸¶Áö¸·¿¡ »ı¼ºµÈ ¶óÀÎÀº ¸¶¿ì½º¸¦ µû¶ó´Ù´Ñ´Ù. µû¶ó¼­ Update()¿¡¼­ Ã³¸®.
+        //í•­ìƒ ê°€ì¥ ë§ˆì§€ë§‰ì— ìƒì„±ëœ ë¼ì¸ì€ ë§ˆìš°ìŠ¤ë¥¼ ë”°ë¼ë‹¤ë‹Œë‹¤. ë”°ë¼ì„œ Update()ì—ì„œ ì²˜ë¦¬.
         if (unLocking) {
             Vector3 mousePos = lineParent.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint((Input.mousePosition)));
             lineOnEditRcTs.sizeDelta = new Vector2(lineOnEditRcTs.sizeDelta.x, (Vector3.Distance(mousePos, circleOnEdit.transform.localPosition)));
@@ -64,6 +64,7 @@ public class LockPattern : MonoBehaviour {
         foreach (var circle in circles) {
             circle.Value.GetComponent<Image>().DOColor(Color.white, .25F);
             circle.Value.GetComponent<RectTransform>().DOScale(1f, .5f).SetEase(Ease.OutBounce);
+            circle.Value.GetComponent<AudioSource>().volume = 1f;
         }
 
         foreach (var line in lines) {
@@ -79,19 +80,19 @@ public class LockPattern : MonoBehaviour {
     }
 
     GameObject CreateLine(Vector3 pos, int id) {
-        //¿øµéÀÇ ºÎ¸ğ ¿ÀºêÁ§Æ® ÁÂÇ¥°¡ (0, 0, 0)ÀÎÁö È®ÀÎ. ¾Æ´Ï¸é ¼±ÀÌ ÀÌ»óÇÏ°Ô ±×·ÁÁú ¼ö ÀÖÀ½.
-        var line = GameObject.Instantiate(linePrefab, lineParent.transform); //¶óÀÎÇÁ¸®ÆÕ º¹Á¦
-        line.transform.localPosition = pos; //¶óÀÎÀÇ »ı¼º À§Ä¡´Â Å¬¸¯µÈ ¿øÀÇ ÁßÁ¡
+        //ì›ë“¤ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸ ì¢Œí‘œê°€ (0, 0, 0)ì¸ì§€ í™•ì¸. ì•„ë‹ˆë©´ ì„ ì´ ì´ìƒí•˜ê²Œ ê·¸ë ¤ì§ˆ ìˆ˜ ìˆìŒ.
+        var line = GameObject.Instantiate(linePrefab, lineParent.transform); //ë¼ì¸í”„ë¦¬íŒ¹ ë³µì œ
+        line.transform.localPosition = pos; //ë¼ì¸ì˜ ìƒì„± ìœ„ì¹˜ëŠ” í´ë¦­ëœ ì›ì˜ ì¤‘ì 
         var linedf = line.AddComponent<CircleIdentifier>();
-        linedf.id = id; //¶óÀÎÀÇ id == ¶óÀÎÀÌ »ı¼ºµÈ ¿øÀÇ id
+        linedf.id = id; //ë¼ì¸ì˜ id == ë¼ì¸ì´ ìƒì„±ëœ ì›ì˜ id
         lines.Add(linedf);
         return line;
     }
     void TrySetLineEdit(CircleIdentifier circle) {
-        //Å¬¸¯µÈ ¿ø¿¡¼­ ÀÌ¹Ì »ı¼ºµÈ ¶óÀÎÀÌ ÀÖ´ÂÁö °Ë»ç.
+        //í´ë¦­ëœ ì›ì—ì„œ ì´ë¯¸ ìƒì„±ëœ ë¼ì¸ì´ ìˆëŠ”ì§€ ê²€ì‚¬.
         foreach (var line in lines) {
-            if (line.id == circle.id) { //ÇØ´ç ¿ø¿¡ ÀÌ¹Ì ¶óÀÎÀÌ »ı¼ºµÆ´Ù¸é
-                return; //¶óÀÎÀ» »õ·Î »ı¼ºÇÏÁö ¾ÊÀ½.
+            if (line.id == circle.id) { //í•´ë‹¹ ì›ì— ì´ë¯¸ ë¼ì¸ì´ ìƒì„±ëë‹¤ë©´
+                return; //ë¼ì¸ì„ ìƒˆë¡œ ìƒì„±í•˜ì§€ ì•ŠìŒ.
             }
         }
 
@@ -150,7 +151,7 @@ public class LockPattern : MonoBehaviour {
             return;
         }
         if (unLocking) {
-            //ÆĞÅÏ ÀÏÄ¡
+            //íŒ¨í„´ ì¼ì¹˜
             if (IsCorrect(lines)) {
                 foreach (var item in lines) {
                     circles[item.id].GetComponent<Image>().DOColor(Color.green, .25F);
@@ -165,7 +166,7 @@ public class LockPattern : MonoBehaviour {
 
                 Invoke("F_Out", 1f);
             } else {
-                //ÆĞÅÏ ºÒÀÏÄ¡
+                //íŒ¨í„´ ë¶ˆì¼ì¹˜
                 foreach (var item in lines) {
                     circles[item.id].GetComponent<Image>().DOColor(Color.red, .25F);
                     circles[item.id].GetComponent<AudioSource>().enabled = true;
